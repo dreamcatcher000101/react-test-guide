@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
 // pages
-import { NotFoundPage, DashboardPage } from "./pages";
+import { NotFoundPage, DashboardPage, SigninPage } from "./pages";
 
 // store
 import store from "./store";
@@ -19,6 +19,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path={PATH.DASHBOARD} element={<DashboardPage />} />
+          <Route path={PATH.SIGNIN} element={<SigninPage />} />
           <Route path={PATH.NOTFOUND} element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
