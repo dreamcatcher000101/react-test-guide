@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// node_modules
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
 
-function App() {
+// pages
+import { NotFoundPage, DashboardPage } from "./pages";
+
+// store
+import store from "./store";
+
+// consts
+import { PATH } from "./consts";
+
+// App Component
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path={PATH.DASHBOARD} element={<DashboardPage />} />
+          <Route path={PATH.NOTFOUND} element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
-}
+};
 
 export default App;
