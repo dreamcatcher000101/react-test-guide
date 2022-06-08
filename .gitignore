@@ -12,3 +12,6 @@ package-lock.json
 
 # prettier
 ./prettierrc
+
+# images
+images
