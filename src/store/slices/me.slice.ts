@@ -19,9 +19,7 @@ const meSlice = createSlice({
     setMe(state: MeState, action: PayloadAction<{ user: User }>) {
       state.data = action.payload.user;
     },
-    singout(state: MeState, action: PayloadAction<{ user: User }>) {
-      state.data = action.payload.user;
-    },
+    singout(state: MeState) {},
   },
 });
 
