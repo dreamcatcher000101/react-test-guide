@@ -1,24 +1,14 @@
-// node_modules
-import {
-  AnyAction,
-  combineReducers,
-  configureStore,
-  Reducer,
-} from "@reduxjs/toolkit";
+// store
+import store, { RootState, Actions } from "./store";
 
-const combinedReducer = combineReducers({});
+// defined typed hooks
+import { useAppDispatch, useAppSelector } from "./hooks";
 
-export type RootState = ReturnType<typeof combinedReducer>;
-
-const rootReducer: Reducer = (
-  state: ReturnType<typeof store.getState>,
-  action: AnyAction
-) => {
-  return combinedReducer(state, action);
-};
-
-const store = configureStore({
-  reducer: rootReducer,
-});
-
+// export store
 export default store;
+
+// export root state type
+export type { RootState };
+
+// export Actions, typed hooks
+export { Actions, useAppDispatch, useAppSelector };

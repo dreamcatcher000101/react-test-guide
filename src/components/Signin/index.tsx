@@ -1,8 +1,38 @@
 // node_modules
 import React from "react";
+import { useForm } from "react-hook-form";
+
+// models
+import { User } from "../../models";
+
+// store & actions & typed hooks
+import { useAppDispatch, Actions } from "../../store";
+
+// types
+type SigninForm = {
+  username: string;
+  password: string;
+};
 
 // Signin Component
 const SigninComponent: React.FC = () => {
+  // definition
+  const dispatch = useAppDispatch();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SigninForm>();
+
+  // handlers
+  const onSubmit = (data: SigninForm) => {
+    const user: User = {
+      name: data.username,
+    };
+    dispatch(Actions.me.setMe({ user }));
+  };
+
+  // render
   return (
     <div className="flex flex-col items-center justify-center h-full">
       <div>
@@ -18,40 +48,39 @@ const SigninComponent: React.FC = () => {
           <h1 className="tracking-wide">To ToDo List</h1>
         </div>
 
-        <form className="flex flex-col justify-center">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col justify-center"
+        >
           <label className="text-sm font-medium">Username</label>
           <input
-            className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
-          focus:outline-none
-          focus:border-sky-500
-          focus:ring-1
-          focus:ring-sky-500
-          focus:invalid:border-red-500 focus:invalid:ring-red-500"
+            className="my-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:invalid:border-red-500 focus:invalid:ring-red-500"
             type="text"
-            name="username"
             placeholder="Username"
-            required
+            {...register("username", { required: true })}
           />
-          <label className="text-sm font-medium">Password</label>
+          {errors.username && (
+            <p className="mb-3 text-sm text-red-600 dark:text-red-500">
+              Please input your name!
+            </p>
+          )}
+          <label className="text-sm font-medium mt-3">Password</label>
           <input
-            className="
-          mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
-          focus:outline-none
-          focus:border-sky-500
-          focus:ring-1
-          focus:ring-sky-500
-          focus:invalid:border-red-500 focus:invalid:ring-red-500"
+            className="my-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:invalid:border-red-500 focus:invalid:ring-red-500"
             type="password"
-            name="password"
             placeholder="********"
-            required
+            {...register("password", { required: true })}
           />
+          {errors.password && (
+            <p className="mb-3 text-sm text-red-600 dark:text-red-500">
+              Please input password!
+            </p>
+          )}
           <button
-            className="px-4 py-1.5 rounded-md shadow-lg bg-sky-600 font-medium text-gray-100 block hover:bg-sky-700 transition duration-300"
+            className="block mt-3 px-4 py-1.5 rounded-md shadow-lg bg-sky-600 font-medium text-gray-100 hover:bg-sky-700 transition duration-300"
             type="submit"
           >
-            <span className="hidden">Checking ...</span>
-            <span>Login</span>
+            Login
           </button>
         </form>
       </div>
