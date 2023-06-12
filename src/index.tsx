@@ -8,6 +8,9 @@ import App from "./App";
 // utils
 import reportWebVitals from "./reportWebVitals";
 
+// styles
+import "./styles/global.css";
+
 // create react node
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

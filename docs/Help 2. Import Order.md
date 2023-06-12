@@ -1,0 +1,11 @@
+1. node_modules
+2. pages
+3. components
+4. sections
+5. model
+6. store
+7. consts
+8. config
+9. utils
+10. assets
+11. styles
