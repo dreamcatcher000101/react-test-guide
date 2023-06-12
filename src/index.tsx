@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import { App } from './App';
-// import './assets/styles/global.css';
+import { App } from './App';
+import './assets/styles/global.css';
 import reportWebVitals from './reportWebVitals';
 
 // create react node
@@ -11,8 +11,7 @@ const root = ReactDOM.createRoot(
 // render react components
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <div>Class</div>
+    <App />
   </React.StrictMode>
 );
 
