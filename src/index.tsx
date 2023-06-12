@@ -1,24 +1,18 @@
-// node_modules
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-// components
-import App from "./App";
-
-// utils
-import reportWebVitals from "./reportWebVitals";
-
-// styles
-import "./styles/global.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+// import { App } from './App';
+// import './assets/styles/global.css';
+import reportWebVitals from './reportWebVitals';
 
 // create react node
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById('root') as HTMLElement
 );
 // render react components
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <div>Class</div>
   </React.StrictMode>
 );
 
