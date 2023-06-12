@@ -1,17 +1,12 @@
-// node_modules
-import React from "react";
+import React from 'react';
+import { FooterSection } from './Footer';
+import { HeaderSection } from './Header';
 
-// sections
-import HeaderSection from "./Header";
-import FooterSection from "./Footer";
-
-// component props
 interface LayoutProps {
   children?: React.ReactNode;
 }
 
-// Layout Component
-const LayoutComponent: React.FC<LayoutProps> = ({ children }) => {
+export const LayoutComponent: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="bg-blue-200 w-full absolute top-0 bottom-0">
       <HeaderSection />
@@ -21,13 +16,12 @@ const LayoutComponent: React.FC<LayoutProps> = ({ children }) => {
   );
 };
 
-// HOC (Higher Order Component)
-const withLayout = (Component: React.FC) => (props: any) => {
+// HOC WithLayout (Higher Order Component)
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const WithLayout = (Component: React.FC) => () => {
   return (
     <LayoutComponent>
-      <Component {...props} />
+      <Component />
     </LayoutComponent>
   );
 };
-
-export default withLayout;

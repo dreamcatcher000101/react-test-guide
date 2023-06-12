@@ -1,3 +1,3 @@
-export const NOTFOUND: string = "*";
-export const DASHBOARD: string = "/";
-export const SIGNIN: string = "/signin";
+export const NOTFOUND = '*';
+export const DASHBOARD = '/';
+export const SIGNIN = '/signin';

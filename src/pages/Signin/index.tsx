@@ -1,12 +1,9 @@
-// node_modules
-import React from "react";
+import { SignInContainer } from 'containers';
+import React from 'react';
+import { WithLayout } from 'components';
 
-// components
-import { withLayout, SigninComponent } from "../../components";
-
-// Signin Page
-const SigninPage: React.FC = () => {
-  return <SigninComponent />;
+const SignIn: React.FC = () => {
+  return <SignInContainer />;
 };
 
-export default withLayout(SigninPage);
+export const SignInPage = WithLayout(SignIn);

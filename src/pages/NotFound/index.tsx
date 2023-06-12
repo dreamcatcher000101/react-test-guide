@@ -1,12 +1,6 @@
-// node_modules
-import React from "react";
+import { NotFoundContainer } from 'containers';
+import React from 'react';
 
-// components
-import { NotFoundComponent } from "../../components";
-
-// NotFound Page
-const NotFoundPage: React.FC = () => {
-  return <NotFoundComponent />;
+export const NotFoundPage: React.FC = () => {
+  return <NotFoundContainer />;
 };
-
-export default NotFoundPage;

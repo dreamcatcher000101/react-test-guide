@@ -1,12 +1,8 @@
-// node_modules
-import React from "react";
-import { Link } from "react-router-dom";
+import { PATH } from 'consts';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-// consts
-import { PATH } from "../../consts";
-
-// NotFound Component
-const NotFoundComponent: React.FC = () => {
+export const NotFoundComponent: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="text-indigo-500 font-bold text-7xl">404</div>
@@ -25,5 +21,3 @@ const NotFoundComponent: React.FC = () => {
     </div>
   );
 };
-
-export default NotFoundComponent;

@@ -1,3 +1,1 @@
-import * as PATH from "./path";
-
-export { PATH };
+export * as PATH from './path';

@@ -1,12 +1,9 @@
-// node_modules
-import React from "react";
+import { DashboardContainer } from 'containers';
+import React from 'react';
+import { WithLayout } from 'components';
 
-// components
-import { withLayout, DashboardComponent } from "../../components";
-
-// Dashboard Page
-const DashboardPage: React.FC = () => {
-  return <DashboardComponent />;
+const Dashboard: React.FC = () => {
+  return <DashboardContainer />;
 };
 
-export default withLayout(DashboardPage);
+export const DashboardPage = WithLayout(Dashboard);

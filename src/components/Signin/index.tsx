@@ -1,38 +1,28 @@
-// node_modules
-import React from "react";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useAppDispatch, AppActions } from 'store';
+import { User } from 'types';
 
-// models
-import { User } from "../../models";
-
-// store & actions & typed hooks
-import { useAppDispatch, Actions } from "../../store";
-
-// types
-type SigninForm = {
+type SignInForm = {
   username: string;
   password: string;
 };
 
-// Signin Component
-const SigninComponent: React.FC = () => {
-  // definition
+export const SignInComponent: React.FC = () => {
   const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SigninForm>();
+  } = useForm<SignInForm>();
 
-  // handlers
-  const onSubmit = (data: SigninForm) => {
+  const onSubmit = (data: SignInForm) => {
     const user: User = {
       name: data.username,
     };
-    dispatch(Actions.me.setMe({ user }));
+    dispatch(AppActions.me.setMe({ user }));
   };
 
-  // render
   return (
     <div className="flex flex-col items-center justify-center h-full">
       <div>
@@ -57,7 +47,7 @@ const SigninComponent: React.FC = () => {
             className="my-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:invalid:border-red-500 focus:invalid:ring-red-500"
             type="text"
             placeholder="Username"
-            {...register("username", { required: true })}
+            {...register('username', { required: true })}
           />
           {errors.username && (
             <p className="mb-3 text-sm text-red-600 dark:text-red-500">
@@ -69,7 +59,7 @@ const SigninComponent: React.FC = () => {
             className="my-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:invalid:border-red-500 focus:invalid:ring-red-500"
             type="password"
             placeholder="********"
-            {...register("password", { required: true })}
+            {...register('password', { required: true })}
           />
           {errors.password && (
             <p className="mb-3 text-sm text-red-600 dark:text-red-500">
@@ -87,5 +77,3 @@ const SigninComponent: React.FC = () => {
     </div>
   );
 };
-
-export default SigninComponent;

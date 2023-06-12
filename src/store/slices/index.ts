@@ -1,4 +1,4 @@
-import meSlice, { meActions } from "./me.slice";
+import meSlice, { meActions } from './me.slice';
 
 export const Slices = { me: meSlice.reducer };
 
